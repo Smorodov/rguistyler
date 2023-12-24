@@ -103,9 +103,9 @@ void GuiWindowFontAtlas(GuiWindowFontAtlasState *state);
 extern Rectangle texShapesRec;
 
 // Basic charset (95 codepoints)
-static const char *charsetBasic = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+static const char *charsetBasic = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 // Default charset: ISO-8859-15 (213 codepoints)
-static const char *charsetDefault = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~¡¢£€¥Š§š©ª«¬®¯°±²³Žµ¶·ž¹º»ŒœŸ¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ";
+static const char *charsetDefault = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
 static Rectangle fontAtlasRec = { 0 };
 static Vector2 fontAtlasPosition = { 0 };
@@ -318,7 +318,7 @@ void GuiWindowFontAtlas(GuiWindowFontAtlasState *state)
         if ((inFontFileName[0] != '\0') && state->fontAtlasRegen)
         {
             // Load font file
-            Font tempFont = LoadFontEx(inFontFileName, state->fontGenSizeValue, codepointList, codepointListCount);
+            Font tempFont = LoadFontEx(inFontFileName, state->fontGenSizeValue, /*codepointList*/0, codepointListCount);
 
             if (tempFont.texture.id > 0)
             {
